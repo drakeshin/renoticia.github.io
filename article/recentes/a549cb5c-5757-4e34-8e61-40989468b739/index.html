@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust in Android: More Memory Safety, Fewer Revisions, Fewer Rollbacks, Shorter Reviews | Re:Notícias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+</head>
+<body>
+
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://drakeshin.github.io/renoticia.github.io/">
+        <strong class="is-size-4">Re:Notícias</strong>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuPrincipal">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarMenuPrincipal" class="navbar-menu">
+      <div class="navbar-start">
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/esportes/">
+              Esportes
+            </a>
+          
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/saude/">
+              Saúde
+            </a>
+          
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/negocios/">
+              Negócios
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <main>
+        
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+
+        
+        <h1 class="title is-2 has-text-centered mb-5">
+          Rust in Android: More Memory Safety, Fewer Revisions, Fewer Rollbacks, Shorter Reviews
+        </h1>
+
+        
+        <div class="level is-mobile mb-4">
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-6 has-text-grey">
+                <time datetime=" 2025-11-17T01:06:00Z">
+                  Publicado em 17/11/2025 às 01:06
+                </time>
+              </p>
+            </div>
+          </div>
+
+          
+          <div class="level-right">
+            <div class="level-item">
+              
+              <a href="https://developers.slashdot.org/story/25/11/17/012246/rust-in-android-more-memory-safety-fewer-revisions-fewer-rollbacks-shorter-reviews?utm_source=rss1.0mainlinkanon&amp;utm_medium=feed" target="_blank" class="button is-small is-primary is-outlined">
+                Ver Fonte Original
+              </a>
+            </div>
+          </div>
+          
+        </div>
+
+        <hr>
+
+        
+        <div class="content is-medium">
+          
+Android's security team published a blog post this week about their experience using Rust. Its title? "Move fast and fix things."
+
+
+
+Last year, we wrote about why a memory safety strategy that focuses on vulnerability prevention in new code quickly yields durable and compounding gains. This year we look at how this approach isn't just fixing things, but helping us move faster. 
+
+The 2025 data continues to validate the approach, with memory safety vulnerabilities falling below 20% of total vulnerabilities for the first time. We adopted Rust for its security and are seeing a 1000x reduction in memory safety vulnerability density compared to Android's C and C++ code. But the biggest surprise was Rust's impact on software delivery. With Rust changes having a 4x lower rollback rate and spending 25% less time in code review, the safer path is now also the faster one... Data shows that Rust code requires fewer revisions. This trend has been consistent since 2023. Rust changes of a similar size need about 20% fewer revisions than their C++ counterparts... In a self-reported survey from 2022, Google software engineers reported that Rust is both easier to review and more likely to be correct. The hard data on rollback rates and review times validates those impressions. 
+
+Historically, security improvements often came at a cost. More security meant more process, slower performance, or delayed features, forcing trade-offs between security and other product goals. The shift to Rust is different: we are significantly improving security and key development efficiency and product stability metrics. 
+
+With Rust support now mature for building Android system services and libraries, we are focused on bringing its security and productivity advantages elsewhere. Android's 6.12 Linux kernel is our first kernel with Rust support enabled and our first production Rust driver. More exciting projects are underway, such as our ongoing collaboration with Arm and Collabora on a Rust-based kernel-mode GPU driver. [They've also been deploying Rust in firmware for years, and Rust "is ensuring memory safety from the ground up in several security-critical Google applications," including Chromium's parsers for PNG, JSON, and web fonts.] 
+
+2025 was the first year more lines of Rust code were added to Android than lines of C++ code...<p><div class="share_submission" style="position:relative;">
+<a class="slashpop" href="http://twitter.com/home?status=Rust+in+Android%3A+More+Memory+Safety%2C+Fewer+Revisions%2C+Fewer+Rollbacks%2C+Shorter+Reviews%3A+https%3A%2F%2Fdevelopers.slashdot.org%2Fstory%2F25%2F11%2F17%2F012246%2F%3Futm_source%3Dtwitter%26utm_medium%3Dtwitter"><img src="https://a.fsdn.com/sd/twitter_icon_large.png"></a>
+<a class="slashpop" href="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fdevelopers.slashdot.org%2Fstory%2F25%2F11%2F17%2F012246%2Frust-in-android-more-memory-safety-fewer-revisions-fewer-rollbacks-shorter-reviews%3Futm_source%3Dslashdot%26utm_medium%3Dfacebook"><img src="https://a.fsdn.com/sd/facebook_icon_large.png"></a>
+
+
+
+</div></p><p><a href="https://developers.slashdot.org/story/25/11/17/012246/rust-in-android-more-memory-safety-fewer-revisions-fewer-rollbacks-shorter-reviews?utm_source=rss1.0moreanon&amp;utm_medium=feed">Read more of this story</a> at Slashdot.</p><iframe src="https://slashdot.org/slashdot-it.pl?op=discuss&amp;id=23847075&amp;smallembed=1" style="height: 300px; width: 100%; border: none;"></iframe>
+        </div>
+
+        
+        
+        <div class="mt-6">
+          <a href="/renoticia.github.io/recentes/" class="button is-light is-link">
+            
+            &larr; Voltar para a lista de Recentes
+          </a>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          &copy; 2025 Re:Notícias.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://drakeshin.github.io/renoticia.github.io/js/navbar.js"></script>
+</body>
+</html>
