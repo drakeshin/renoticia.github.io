@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta name="generator" content="Hugo 0.123.7">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:Notícias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+</head>
+<body>
+
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://drakeshin.github.io/renoticia.github.io/">
+        <strong class="is-size-4">Re:Notícias</strong>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuPrincipal">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarMenuPrincipal" class="navbar-menu">
+      <div class="navbar-start">
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/esportes/">
+              Esportes
+            </a>
+          
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/saude/">
+              Saúde
+            </a>
+          
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/negocios/">
+              Negócios
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <main>
+        
+<section class="section">
+  <div class="container">
+
+    
+    
+
+    
+    
+    
+    <h1 class="title has-text-centered">Recentes</h1>
+
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+
+        
+        
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/b2031e36-ba75-4f22-8383-c1b153ed07b4/" class="is-size-4">Highlights from Git 2.52</a></strong>
+                  <br>
+                  The open source Git project just released Git 2.52 with features and bug fixes from over 94 contributors, 33 of them new. We last caught up with you on the latest in Git back when 2.51 was released.    To celebrate this most recent release, here is GitHub’s look at some of the most interesting features and changes introduced since last time.    Tree-level blame information    If you’re a seasoned Git user, then you are no doubt familiar with git blame, Git’s tool for figuring out which commit most recently modified each line at a given filepath. Git’s blame functionality is great for figuring out when a bug was introduced, or why some code was written the way it was. If you want to know which commit last modified any portion of a given filepath, that’s easy enough to do with git log -1 &ndash; path/to/my/file, since -1 will give us only the first commit which modifies that path. But what if instead you want to know which commit most recently modified every file in some directory? Answering that question may seem contrived, but it’s not. If you’ve ever looked at a repository’s file listing on GitHub, the middle column of information has a link to the commit which most recently modified that path, along with (part of) its commit message.    GitHub’s repository file listing, showing tree-level blame information.    The question remains: how do we efficiently determine which commit most recently modified each file in a given directory? You could imagine that you might enumerate each tree entry, feeding it to git log -1 and collecting the output there, like so:    $ git ls-tree -z &ndash;name-only HEAD^{tree} | xargs -0 -I{} sh -c &rsquo;     git log -1 &ndash;format=&quot;$1 %h %s&quot; &ndash; $1   &rsquo; &ndash; {}  | column -t -l3  .cirrus.yml     1e77de10810  ci: update FreeBSD image to 14.3 .clang-format   37215410730  clang-format: exclude control macros from SpaceBeforeParens .editorconfig   c84209a0529  editorconfig: add .bash extension .gitattributes  d3b58320923  merge-file doc: set conflict-marker-size attribute .github         5db9d35a28f  Merge branch &lsquo;js/ci-github-actions-update&rsquo; [&hellip;]    That works, but not efficiently. To see why, consider a case with files A, B, and C introduced by commits C1, C2, and C3, respectively. To blame A, we walk from C3 back to C1 in order to determine that C1 was the most recent commit to modify A. That traversal passed through C2 and C3, but since we were only looking for modifications to A, we’ll end up revisiting those commits when trying to blame B and C. In this example, we visit those three commits six times in total, which is twice the necessary number of history traversals.    Git 2.52 introduces a new command which comes up with the same information in a fraction of the time: git last-modified. To get a sense for how much faster last-modified is than the example above, here are some hyperfine results:    Benchmark 1: git ls-tree + log   Time (mean ± σ):      3.962 s ±  0.011 s    [User: 2.676 s, System: 1.330 s]   Range (min … max):    3.940 s …  3.984 s    10 runs  Benchmark 2: git last-modified   Time (mean ± σ):     722.7 ms ±   4.6 ms    [User: 682.4 ms, System: 40.1 ms]   Range (min … max):   717.3 ms … 731.3 ms    10 runs  Summary   git last-modified ran     5.48 ± 0.04 times faster than git ls-tree + log    The core functionality behind git last-modified was written by GitHub over many years (originally called blame-tree in GitHub’s fork of Git), and is what has powered our tree-level blame since 2012. Earlier this year, we shared those patches with engineers at GitLab, who tidied up years of development into a reviewable series of patches which landed in t&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:54:31Z">
+                      17/11/2025 às 17:54
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://github.blog/open-source/git/highlights-from-git-2-52/" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/998c5c7d-bdf0-45dc-b9c6-5b0d8fb8ba6f/" class="is-size-4">Ray Dalio e Michael Burry mexendo os pauzinhos…</a></strong>
+                  <br>
+                  &hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:52:26Z">
+                      17/11/2025 às 17:52
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://www.youtube.com/shorts/4ulISV-N4d0" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/b20149f5-27d9-4082-beb0-d1942a6a81cd/" class="is-size-4">Previsão indica tempo instável em Salvador nesta semana; confira - Bahia.Ba</a></strong>
+                  <br>
+                  Previsão indica tem&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:51:00Z">
+                      17/11/2025 às 17:51
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://news.google.com/rss/articles/CBMilAFBVV95cUxPTURaRVpzWEdhTkJJWDVHTFRVWVlaSEZmMzF5TkNaNXhOa1N5bWhiZFluYW1ER2laRFVTMWZxTDM2enZENjl3eFlZTzJua1dqM2ZycTB6cEo2MUQ0S3M5TXhDaGZ6Wm5DMjRMdFZNd1dTQ05fdVRhYWFyNVU1TkxXTlJfSkx1cm5yTm9aMTE0VUJKMVhk?oc=5" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/4183f784-533a-4496-86a3-68d089a9911f/" class="is-size-4">Brasil pode levar 16 anos para reduzir desigualdade racial no ensino médio</a></strong>
+                  <br>
+                  O Brasil registrou média nacional de conclusão do ensino médio de 74,3% em 2025, mas persiste uma defasagem entre jovens brancos ou amarelos (81,7%) e pretos, pardos e indígenas (69,5%). Um estudo do instituto Todos pela Educação aponta que, na velocidade atual&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:50:20Z">
+                      17/11/2025 às 17:50
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://www.metro1.com.br/noticias/educacao/173317,brasil-pode-levar-16-anos-para-reduzir-desigualdade-racial-no-ensino-medio" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/2ce13f91-5164-44db-ae90-fb76efa10820/" class="is-size-4">Policiais entram em confronto com criminosos do CV em Salvador - Band</a></strong>
+                  <br>
+                  Policiais entram &hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:46:00Z">
+                      17/11/2025 às 17:46
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://news.google.com/rss/articles/CBMiygFBVV95cUxPWmJVR1FPcE9SOWJpNm8tZENUamxIclRqZVM5R0hDQklleXR4TmtjWldSNVZMaDJGRFNXazFNNkRPOUg4aHFCWUlCaUNvWXB5Q3lfaEJ3ZG1OaWRINFNBdnRHd0NYSHlqQzVFcjZMQlJGeVJ0T0Q4NnBfaEpkQ2VQV0J2S205aXRqaFlUVHRsSVZTcmxpU3Z1MGZwVnJ0ZGdFR01uVHdGWEJXTkMzRTZwVS1vS1VNa29CMnNmYkJxSmRUWnVXTjJlTVpB?oc=5" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/67324937-759c-48a4-abca-2af81b8fe99e/" class="is-size-4">Nova data de entrega da Rodoviária de Salvador é confirmada após atrasos - Jornal Correio</a></strong>
+                  <br>
+                  Nova data de entrega d&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:41:25Z">
+                      17/11/2025 às 17:41
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://news.google.com/rss/articles/CBMiwAFBVV95cUxPcWNrUHpRNS1CTFlFRkF6ZHZJbm5mcVdRQno3MUJKT2xqSHAxUGQzMEo0VXB1WXcwLTgySDFoalp4dHlBY29JeWRNQ3oxMWozbDM0X3RDdG1IR2MzcjZMV3cwUkJibTh6TFFCNWVWTWNKczUtdjZSZXB6VjdRVlpoMFNNUWdhOFdpbkh3Y1BVT0NacTJ2VVF0WS1iMHlQLWhOMW9UbjEwZEZUVTZoMFhFRmRxbnM2N0NhY2FoOHVFa3g?oc=5" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/cc12131e-ee95-4537-bd0f-ecffda585949/" class="is-size-4">Figure Stock Jumps as Druckenmiller Invests $77M, Analysts Raise Price Targets</a></strong>
+                  <br>
+                  Analysts cited Figure’s shi&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:39:36Z">
+                      17/11/2025 às 17:39
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://www.coindesk.com/markets/2025/11/17/figure-stock-jumps-as-druckenmiller-invests-usd77m-analysts-raise-price-targets" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/b7f633c9-cc9b-450e-8146-4642ca607350/" class="is-size-4">SSP criará Grupo de Trabalho para ampliar redução dos crimes contra o transporte público em Salvador - ba.gov.br</a></strong>
+                  <br>
+                  SSP criará Grupo de Trabalho&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:38:09Z">
+                      17/11/2025 às 17:38
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://news.google.com/rss/articles/CBMixgFBVV95cUxNSUJlbjVLUWhzZXFRRXJUd0o1ZG5VYkoyVE5BSkhSRU5iWlRhMzJoQU02djlyc2lkVjNhaGxVWndxd2V4VGM2QXZpSmVkNnloQmhwTWstRkY0UENuRXUyWWJkUThneV9MQ3luaFpqcXNST3I2ZmJHOVlMbzl5U0gtb0NxamhXSnpxUGxLRDRvTEdSWEUxeHU1X2xOSDdyUlA1eXBHTHRTWFlWZkdTaHBNQTV1MWJlNHVaNWVvdTFiZk9jc2dKSXc?oc=5" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/e0fe7230-dbf6-43a6-b4be-e4f83e09ca54/" class="is-size-4">Castramóvel inicia castrações gratuitas para cães e gatos em Salvador - Jornal Correio</a></strong>
+                  <br>
+                  Castramóvel inicia ca&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:36:57Z">
+                      17/11/2025 às 17:36
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://news.google.com/rss/articles/CBMiuAFBVV95cUxNWmhyVnVxUlU4MFl4S1oxT0lJV0lYeGJZM0s4elR1V1lFUlpaN2FpOXZOcmhrWVNWMEYzdFhWTXZ4Ty1FSGFiN0dOU1A1YnRORmE2MTBWV3lOR1lnQmhxTWp6MUJWZk95Z1k3ODllcDgxNDZtdzlQR095aE13aXBLY25WYS1zeTZJQlljbUYwVEtIdXpzdFB6MmxYa3NNQlk0TmhSMzZXSm84RndjSWxBMDVzMVFHV3k0?oc=5" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        <div class="box">
+          <article class="media">
+
+            
+
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><a href="https://drakeshin.github.io/renoticia.github.io/article/recentes/3a982a7e-cad2-4809-805d-b9b378af14d6/" class="is-size-4">Quem você escolheria para substituir Rodrigo Garro no Majestoso? Vote na enquete do Meu Timão! - Meu Timão</a></strong>
+                  <br>
+                  Quem você escolheria para substituir Rodrigo Garro no Majestoso? Vote na enquete do Meu Timão!  Meu TimãoC&hellip;
+                </p>
+              </div>
+
+              <div class="columns is-mobile is-gapless is-vcentered">
+                <div class="column">
+                  <small class="has-text-grey">
+                    <time datetime=" 2025-11-17T17:31:00Z">
+                      17/11/2025 às 17:31
+                    </time>
+                  </small>
+                </div>
+                <div class="column has-text-right-tablet">
+                  <small class="has-text-grey">
+                    
+                    
+                    <a href="https://news.google.com/rss/articles/CBMi5gFBVV95cUxONHVTeW45UTV1czZsWVNHRW9UUldmZGl3RjZRb05jdEU4VjNWZUllWGhBMnFWT0RpVzNLTE14SUc3T3NFb0RwaUFnRUZjcTU0X2VDZGFwNGloLXhRTkVBQXVZM3ZxUFI5MkdhcHBuQlV2c1NKQ2VrZWdTSEhSOXdQWXJTTFlfNnVtblE5eWl0ZjJrNXU3cC0wM1VmU0JjQmxfdnBYU19LWjhDcTBTemtoRHNsUUNEblhoWF9CVXhuNi0yZWU0c3FySXh3akdqNWN3YjI3Ui1zVFZocVU5U3dFelFkR3V2d9IB1gFBVV95cUxOa3ctOTlGMm93azFEc3hvWUdETW8xSlpPclFnSk1aZElHUGVhbGV3Y0loTlVFVTY5cGwxLWNqVHhTb0JtVXFRSmlucFRvalkwcF84VERRVm1DWmt6b2NRdjJxUmZpamswd3lVZmFtVHlYazUxOVBKbERfYUJuWlRRUnE5MUNjV3k2SnlzQU1GNDZpR0pjellDRkVsUC1UWGlIMy1uZnllM1ZFRTNiXzVxV2twd0JlS1NKdmFET3J6blJtQ3hKYzN3bEN2NTBMQlB3V0NSS1B3?oc=5" class="is-size-9">Ver Fonte Original</a>
+                    
+                  </small>
+                </div>
+              </div>
+            </div>
+
+          </article>
+        </div>
+
+        
+
+        
+
+<nav class="pagination is-centered" role="navigation" aria-label="pagination">
+    
+    
+    
+    <a href="/renoticia.github.io/page/15/" class="pagination-next">Próximo</a>
+    
+
+    
+    <a href="/renoticia.github.io/page/13/" class="pagination-previous">Anterior</a>
+    
+    
+
+    <ul class="pagination-list">
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/" class="pagination-link " aria-label="Página 1" aria-current="">
+                1
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/2/" class="pagination-link " aria-label="Página 2" aria-current="">
+                2
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/3/" class="pagination-link " aria-label="Página 3" aria-current="">
+                3
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/4/" class="pagination-link " aria-label="Página 4" aria-current="">
+                4
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/5/" class="pagination-link " aria-label="Página 5" aria-current="">
+                5
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/6/" class="pagination-link " aria-label="Página 6" aria-current="">
+                6
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/7/" class="pagination-link " aria-label="Página 7" aria-current="">
+                7
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/8/" class="pagination-link " aria-label="Página 8" aria-current="">
+                8
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/9/" class="pagination-link " aria-label="Página 9" aria-current="">
+                9
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/10/" class="pagination-link " aria-label="Página 10" aria-current="">
+                10
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/11/" class="pagination-link " aria-label="Página 11" aria-current="">
+                11
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/12/" class="pagination-link " aria-label="Página 12" aria-current="">
+                12
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/13/" class="pagination-link " aria-label="Página 13" aria-current="">
+                13
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/14/" class="pagination-link is-current" aria-label="Página 14" aria-current="page">
+                14
+            </a>
+        </li>
+        
+        <li>
+            
+            
+            <a href="/renoticia.github.io/page/15/" class="pagination-link " aria-label="Página 15" aria-current="">
+                15
+            </a>
+        </li>
+        
+    </ul>
+</nav>
+
+
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          &copy; 2025 Re:Notícias.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://drakeshin.github.io/renoticia.github.io/js/navbar.js"></script>
+</body>
+</html>
