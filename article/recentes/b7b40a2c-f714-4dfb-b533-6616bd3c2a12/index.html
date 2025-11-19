@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level up design-to-code collaboration with GitHub’s open source Annotation Toolkit | Re:Notícias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+    </style>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"></script>
+</head>
+<body>
+
+    <nav class="navbar is-light" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://drakeshin.github.io/renoticia.github.io/">
+        <strong class="is-size-4">Re:Notícias</strong>
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarMenuPrincipal">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarMenuPrincipal" class="navbar-menu">
+      <div class="navbar-start">
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/esportes/">
+              Esportes
+            </a>
+          
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/saude/">
+              Saúde
+            </a>
+          
+        
+          
+            <a class="navbar-item" href="/renoticia.github.io/negocios/">
+              Negócios
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+    <main>
+        
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-three-quarters">
+
+        
+        <h1 class="title is-2 has-text-centered mb-5">
+          Level up design-to-code collaboration with GitHub’s open source Annotation Toolkit
+        </h1>
+
+        
+        <div class="level is-mobile mb-4">
+          <div class="level-left">
+            <div class="level-item">
+              <p class="subtitle is-6 has-text-grey">
+                <time datetime=" 2025-11-18T18:05:17Z">
+                  Publicado em 18/11/2025 às 18:05
+                </time>
+              </p>
+            </div>
+          </div>
+
+          
+          <div class="level-right">
+            <div class="level-item">
+              
+              <a href="https://github.blog/enterprise-software/collaboration/level-up-design-to-code-collaboration-with-githubs-open-source-annotation-toolkit/" target="_blank" class="button is-small is-primary is-outlined">
+                Ver Fonte Original
+              </a>
+            </div>
+          </div>
+          
+        </div>
+
+        <hr>
+
+        
+        <div class="content is-medium">
+          
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><body><p>If you&rsquo;ve ever been handed a design file and thought, <em>&ldquo;Wait&mdash;what exactly is this supposed to do?&rdquo;</em> you&rsquo;re not alone.&nbsp;</p>
+
+
+
+<p>The handoff between designers and developers is one of the most common points where product workflows break down. You are looking at components and trying to figure out what&rsquo;s interactive, what&rsquo;s responsive, what happens when text gets bigger. The designer is trying to express something that isn&rsquo;t directly stated on the canvas. Somewhere in that gap, accessibility considerations get missed. Knowledge walks out the door in lost Slack threads. Then it all comes back later as a bug that could have been prevented if messages weren&rsquo;t missed or if expectations had been clearer upfront.</p>
+
+
+
+<p>GitHub&rsquo;s accessibility design team ran into this exact problem internally. They looked at their own accessibility audit data and realized something striking: nearly <strong>half of accessibility audit issues (48%)</strong> could have been prevented if design intent had been better documented upfront by integrating <a href="https://github.com/w3c/wcag">WCAG (Web Content Accessibility Guidelines)</a> considerations directly into annotations. So they built something to fix it. And now they&rsquo;ve open sourced it.</p>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe title="A look at the open source annotation toolkit | GitHub Checkout" width="500" height="281" src="https://www.youtube.com/embed/TjBO0bUK4bM?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div></figure>
+
+
+
+<p>It&rsquo;s called the <a href="https://github.com/github/annotation-toolkit">Annotation Toolkit</a>, and it&rsquo;s a Figma library designed to make the handoff easier. The framework brings structure, clarity, and accessibility-first practices into every design-to-code interaction.</p>
+
+
+
+<h2 class="wp-block-heading" id="what-the-annotation-toolkit-is-and-isnt">What the Annotation Toolkit is (and isn&rsquo;t)</h2>
+
+
+
+<p>At its core, the Annotation Toolkit is a <strong>Figma library</strong> of stamps (annotations) that you can drop into your designs. Each annotation lets you:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Express design intent</strong> beyond what&rsquo;s visually on the canvas.</li>
+
+
+
+<li><strong>Document accessibility behaviors</strong> like responsive reflow or table handling.</li>
+
+
+
+<li><strong>Guide engineers clearly</strong> by linking numbered stamps to descriptions.</li>
+</ul>
+
+
+
+<p>Instead of documenting all this in Figma comments (which get lost), Slack threads (which disappear), or scattered one-off clarifications (which nobody can remember later), the annotations live right inside your design file. They&rsquo;re numbered, they&rsquo;re portable, and they stay with your work.</p>
+
+
+
+<p>Think of it like embedding clarity directly into the handoff.</p>
+
+
+
+<h2 class="wp-block-heading" id="why-it-matters-accessibility-by-default">Why it matters: Accessibility by default</h2>
+
+
+
+<p>The toolkit was built by GitHub&rsquo;s accessibility design team specifically so that accessibility considerations aren&rsquo;t something you bolt on at the end. They&rsquo;re baked into the design workflow from the start.</p>
+
+
+
+<p>Each annotation comes with built-in guidance. Want to mark a table? The toolkit addresses nearly every design-preventable accessibility issue under WCAG guidelines, including things like reflow behavior. Adding an image? It prompts you to document the context so developers can write proper alt text. The toolkit doesn&rsquo;t just let you document accessibility&mdash;it teaches you as you go.</p>
+
+
+
+<p>That&rsquo;s not a small thing. It means developers stop guessing. It means accessibility isn&rsquo;t a specialist concern anymore, but is part of the conversation from day one.</p>
+
+
+
+<h2 class="wp-block-heading" id="real-world-application-from-pain-points-to-productivity">Real-world application: From pain points to productivity</h2>
+
+
+
+<p>Before this toolkit, GitHub teams relied on a patchwork of Figma comments, Slack threads, and one-off clarifications. This patched approach resulted in knowledge gaps and repeated accessibility oversights.</p>
+
+
+
+<p>But now, annotations provide:</p>
+
+
+
+<ul class="wp-block-list">
+<li><strong>Clarity at scale</strong>: engineers no longer guess at intended behaviors.<br><strong>Consistency across teams</strong>: designers, product managers (PM), and developers all share a common language.</li>
+
+
+
+<li><strong>Preventative QA</strong>: many issues are resolved at the design stage instead of post-build.</li>
+</ul>
+
+
+
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p>Annotations enable Figma to become more than just a canvas. It&rsquo;s a tool for expressing a much deeper level of information.</p>
+<cite><a href="https://github.com/hellojanehere">@hellojanehere</a>, product manager at GitHub</cite></blockquote>
+
+
+
+<h2 class="wp-block-heading" id="tutorial-how-to-use-the-annotation-toolkit">Tutorial: How to use the Annotation Toolkit</h2>
+
+
+
+<h3 class="wp-block-heading" id="how-to-get-started">How to get started</h3>
+
+
+
+<p>You&rsquo;ve got two paths here, so pick whichever feels easier:</p>
+
+
+
+<p><strong>Option 1: From Figma Community (fastest)</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>Head to the @github profile on Figma (figma.com/@github).</li>
+
+
+
+<li>Find the Annotation Toolkit and click the link to duplicate it.</li>
+
+
+
+<li>It goes straight to your drafts.</li>
+
+
+
+<li>Access the components anytime from your Assets tab.</li>
+</ol>
+
+
+
+<p><strong>Option 2: From GitHub (if you want all the docs at once)</strong></p>
+
+
+
+<ol class="wp-block-list">
+<li>Visit github.com/github/annotation-toolkit.</li>
+
+
+
+<li>Download the exported Figma file from the repo.</li>
+
+
+
+<li>Open it in Figma and duplicate it to your workspace.</li>
+
+
+
+<li>Same deal&mdash;find components in your Assets tab.</li>
+</ol>
+
+
+
+<p>Once you&rsquo;ve got the toolkit, adding your first annotation is straightforward. Open any design file, drag an annotation stamp into it (say, the Image annotation on a profile picture), and you&rsquo;ll see a numbered label appear. Pair that number with a description block and write what you need. That&rsquo;s it. You&rsquo;ve just documented something that would normally disappear into a Slack thread.</p>
+
+
+
+<p>The toolkit comes with design checkpoints, which are basically interactive checklists that keep accessibility top of mind as you work. If you want to go deeper, everything is documented. The <a href="https://github.com/github/annotation-toolkit/tree/main/tutorials">repo</a> has tutorials for every annotation type, deep dives on WCAG compliance, and guidance on avoiding common handoff friction. Check it out and contribute back if you find gaps.</p>
+
+
+
+<h2 class="wp-block-heading" id="h-the-bigger-picture">The bigger picture</h2>
+
+
+
+<p>The Annotation Toolkit is a shift in how we think about collaboration. By embedding intent, accessibility, and clarity directly into Figma, GitHub is giving the developer-designer partnership a new foundation.</p>
+
+
+
+<p>It&rsquo;s not about replacing conversations. It&rsquo;s about making them more meaningful. When intent is clear, work flows faster, and the end result is better for everyone.</p>
+
+
+
+<p>The <a href="https://github.com/github/annotation-toolkit">toolkit</a> is actively maintained by GitHub staff and open to contributions. If you spot something that could be better, head over to <a href="http://github.com/github/annotation-toolkit">github.com/github/annotation-toolkit</a> and open an issue. Report bugs, suggest features, or contribute new annotation types. The team is actively looking for feedback on how you&rsquo;re using it and what&rsquo;s missing.</p>
+
+
+
+<p>&#128073; <a href="https://www.figma.com/@github">Explore the toolkit on Figma at @GitHub</a> or <a href="https://github.com/github/annotation-toolkit">dive into the repository on GitHub</a>. If you want to see it in action first,<a href="https://youtu.be/TjBO0bUK4bM"> check out the walkthrough</a>. Try it, contribute, and help shape the future of accessible, collaborative design.</p>
+</body></html>
+<p>The post <a href="https://github.blog/enterprise-software/collaboration/level-up-design-to-code-collaboration-with-githubs-open-source-annotation-toolkit/">Level up design-to-code collaboration with GitHub’s open source Annotation Toolkit</a> appeared first on <a href="https://github.blog">The GitHub Blog</a>.</p>
+
+        </div>
+
+        
+        
+        <div class="mt-6">
+          <a href="/renoticia.github.io/recentes/" class="button is-light is-link">
+            
+            &larr; Voltar para a lista de Recentes
+          </a>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    </main>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          &copy; 2025 Re:Notícias.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://drakeshin.github.io/renoticia.github.io/js/navbar.js"></script>
+</body>
+</html>
