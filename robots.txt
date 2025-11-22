@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://drakeshin.github.io/renoticia.github.io/sitemap.xml
